@@ -1,0 +1,17 @@
+{
+  "projects": {
+    "default": "annisa-putri-wahyuni"
+  },
+  "targets": {
+    "annisa-putri-wahyuni": {
+      "hosting": {
+        "first_name": [
+          "annisa"
+        ],
+        "full_name": [
+          "annisa-putri-wahyuni"
+        ]
+      }
+    }
+  }
+}
