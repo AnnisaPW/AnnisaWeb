@@ -16,7 +16,7 @@ class BattleSnakeAppbar extends StatelessWidget {
       // leading: Text('${sizeWidth} ,${sizeHeight}'),
       leading: IconButton(
         icon: const Icon(Icons.arrow_back_ios),
-        onPressed: () => RM.navigate.back(),
+        onPressed: () => nav.back(),
       ),
       // leading: Text(dt.rmArah.st),
       actions: [
