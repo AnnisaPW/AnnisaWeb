@@ -3,8 +3,8 @@ part of '_index.dart';
 final homeSnakeCtrl = HomeSnakeCtrl();
 
 class HomeSnakeCtrl {
-  final data = HomeSnakeData();
-  init() {}
+  // final data = HomeSnakeData();
+  HomeSnakeData get dt => homeSnakeData.st;
 
-  action() => data.animation1.triggerAnimation();
+  action() => dt.animation1.triggerAnimation();
 }

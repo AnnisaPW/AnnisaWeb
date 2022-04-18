@@ -6,7 +6,7 @@ class HomeSnakeAppleImage extends StatelessWidget {
   }) : super(key: key);
 
   HomeSnakeCtrl get ct => homeSnakeCtrl;
-  HomeSnakeData get dt => homeSnakeCtrl.data;
+  HomeSnakeData get dt => homeSnakeCtrl.dt;
 
   @override
   Widget build(BuildContext context) {

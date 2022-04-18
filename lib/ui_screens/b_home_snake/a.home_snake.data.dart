@@ -1,5 +1,13 @@
 part of '_index.dart';
 
+final homeSnakeData = RM.inject<HomeSnakeData>(
+  () => HomeSnakeData(),
+  debugPrintWhenNotifiedPreMessage: 'HomeSnakeData',
+  // sideEffects: SideEffects(
+  //   initState: () => battleSnakeCtrl.init(),
+  // ),
+);
+
 class HomeSnakeData {
   final String title = 'Home Snake';
 

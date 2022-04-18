@@ -6,7 +6,7 @@ class HomeSnakeBtnBattle extends StatelessWidget {
   }) : super(key: key);
 
   HomeSnakeCtrl get ct => homeSnakeCtrl;
-  HomeSnakeData get dt => homeSnakeCtrl.data;
+  HomeSnakeData get dt => homeSnakeData.st;
 
   @override
   Widget build(BuildContext context) {

@@ -4,7 +4,7 @@ class HomeSnakeImageClouds extends StatelessWidget {
   const HomeSnakeImageClouds({Key? key}) : super(key: key);
 
   HomeSnakeCtrl get ct => homeSnakeCtrl;
-  HomeSnakeData get dt => homeSnakeCtrl.data;
+  HomeSnakeData get dt => homeSnakeData.st;
 
   @override
   Widget build(BuildContext context) {
