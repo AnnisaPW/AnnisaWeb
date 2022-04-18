@@ -4,7 +4,7 @@ class SingleSnakePoint extends StatelessWidget {
   const SingleSnakePoint({Key? key}) : super(key: key);
 
   SingleSnakeCtrl get ct => singleSnakeCtrl;
-  SingleSnakeData get dt => singleSnakeCtrl.data;
+  SingleSnakeData get dt => singleSnakeData.st;
 
   @override
   Widget build(BuildContext context) {

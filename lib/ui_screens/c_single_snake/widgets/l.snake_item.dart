@@ -30,7 +30,7 @@ class SingleSnakeItem extends StatelessWidget {
   }
 
   SingleSnakeCtrl get ct => singleSnakeCtrl;
-  SingleSnakeData get dt => singleSnakeCtrl.data;
+  SingleSnakeData get dt => singleSnakeData.st;
 
   @override
   Widget build(BuildContext context) {

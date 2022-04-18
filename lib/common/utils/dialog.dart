@@ -4,7 +4,7 @@ BattleSnakeCtrl get ct => battleSnakeCtrl;
 BattleSnakeData get dt => battleSnakeData.st;
 
 SingleSnakeCtrl get ct2 => singleSnakeCtrl;
-SingleSnakeData get dt2 => singleSnakeCtrl.data;
+SingleSnakeData get dt2 => singleSnakeData.st;
 
 class Dialogs {
   static Future<T?> gameOver<T>(String message) => RM.navigate.toDialog<T>(

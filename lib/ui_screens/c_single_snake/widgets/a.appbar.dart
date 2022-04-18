@@ -4,7 +4,7 @@ class SingleSnakeAppbar extends StatelessWidget {
   const SingleSnakeAppbar({Key? key}) : super(key: key);
 
   SingleSnakeCtrl get ct => singleSnakeCtrl;
-  SingleSnakeData get dt => singleSnakeCtrl.data;
+  SingleSnakeData get dt => singleSnakeData.st;
 
   @override
   Widget build(BuildContext context) {

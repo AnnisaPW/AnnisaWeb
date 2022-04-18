@@ -4,7 +4,7 @@ class SingleSnakeItemGridView extends StatelessWidget {
   const SingleSnakeItemGridView({Key? key}) : super(key: key);
 
   SingleSnakeCtrl get ct => singleSnakeCtrl;
-  SingleSnakeData get dt => singleSnakeCtrl.data;
+  SingleSnakeData get dt => singleSnakeData.st;
 
   Widget? itemX(int z) {
     switch (z) {
