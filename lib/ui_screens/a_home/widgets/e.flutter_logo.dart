@@ -4,7 +4,7 @@ class HomeFlutterLogo extends StatelessWidget {
   const HomeFlutterLogo({Key? key}) : super(key: key);
 
   HomeCtrl get ct => homeCtrl;
-  HomeData get dt => homeCtrl.data;
+  HomeData get dt => homeData.st;
 
   @override
   Widget build(BuildContext context) {
