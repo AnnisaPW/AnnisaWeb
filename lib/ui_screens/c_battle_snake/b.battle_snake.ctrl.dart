@@ -3,121 +3,121 @@ part of '_index.dart';
 final battleSnakeCtrl = BattleSnakeCtrl();
 
 class BattleSnakeCtrl {
-  final data = BattleSnakeData();
+  BattleSnakeData get dt => battleSnakeData.st;
 
   tappedCoordinat(int x, int y) {
     debugPrint('$x , $y');
-    if (data.rmArah.st == 'up' || data.rmArah.st == 'down') {
-      if (x < data.rmSnake.st[0][0]) {
-        data.rmArah.st = 'left';
-      } else if (x > data.rmSnake.st[0][0]) {
-        data.rmArah.st = 'right';
+    if (dt.rmArah.st == 'up' || dt.rmArah.st == 'down') {
+      if (x < dt.rmSnake.st[0][0]) {
+        dt.rmArah.st = 'left';
+      } else if (x > dt.rmSnake.st[0][0]) {
+        dt.rmArah.st = 'right';
       }
     } else {
-      if (y < data.rmSnake.st[0][1]) {
-        data.rmArah.st = 'up';
-      } else if (y > data.rmSnake.st[0][1]) {
-        data.rmArah.st = 'down';
+      if (y < dt.rmSnake.st[0][1]) {
+        dt.rmArah.st = 'up';
+      } else if (y > dt.rmSnake.st[0][1]) {
+        dt.rmArah.st = 'down';
       }
     }
   }
 
   reset() {
-    data.rmSnake.refresh();
-    data.rmPoint.refresh();
-    data.rmArah.refresh();
-    data.rmArahSnake2.refresh();
-    data.rmFoodX.refresh();
-    data.rmFoodY.refresh();
-    data.rmIsRunning.refresh();
-    data.rmIsPause.refresh();
-    data.rmSnake2.refresh();
+    dt.rmSnake.refresh();
+    dt.rmPoint.refresh();
+    dt.rmArah.refresh();
+    dt.rmArahSnake2.refresh();
+    dt.rmFoodX.refresh();
+    dt.rmFoodY.refresh();
+    dt.rmIsRunning.refresh();
+    dt.rmIsPause.refresh();
+    dt.rmSnake2.refresh();
   }
 
   List<int> randomFood() {
-    var snakeString = data.rmSnake.st.map((e) => e.toString());
+    var snakeString = dt.rmSnake.st.map((e) => e.toString());
     String str;
     int x;
     int y;
 
     do {
-      x = Random().nextInt(data.totalX);
-      y = Random().nextInt(data.totalY);
+      x = Random().nextInt(dt.totalX);
+      y = Random().nextInt(dt.totalY);
       str = '[$x, $y]';
       debugPrint(str);
     } while (snakeString.contains(str));
 
-    data.rmFoodX.st = x;
-    data.rmFoodY.st = y;
+    dt.rmFoodX.st = x;
+    dt.rmFoodY.st = y;
     return [x, y];
   }
 
   checkFood() {
-    if (data.rmSnake.st[0][0] == data.rmFoodX.st &&
-        data.rmSnake.st[0][1] == data.rmFoodY.st) {
-      data.rmFoodX.st = randomFood()[0];
-      data.rmFoodY.st = randomFood()[1];
+    if (dt.rmSnake.st[0][0] == dt.rmFoodX.st &&
+        dt.rmSnake.st[0][1] == dt.rmFoodY.st) {
+      dt.rmFoodX.st = randomFood()[0];
+      dt.rmFoodY.st = randomFood()[1];
 
-      data.rmPoint.st = data.rmPoint.st + 1;
-      data.timerx.cancel();
+      dt.rmPoint.st = dt.rmPoint.st + 1;
+      dt.timerx.cancel();
 
-      data.rmInitDuration.st = (data.rmInitDuration.st * 0.9).floor();
+      dt.rmInitDuration.st = (dt.rmInitDuration.st * 0.9).floor();
       start();
     } else {
-      data.rmSnake.st.removeLast();
+      dt.rmSnake.st.removeLast();
     }
   }
 
-  changeDirection(String direction) => data.rmArah.st = direction;
+  changeDirection(String direction) => dt.rmArah.st = direction;
 
-  pause() => data.rmIsPause.st = !data.rmIsPause.st;
+  pause() => dt.rmIsPause.st = !dt.rmIsPause.st;
 
   stop() {
-    data.rmIsPause.st = false;
-    data.rmIsRunning.st = false;
+    dt.rmIsPause.st = false;
+    dt.rmIsRunning.st = false;
   }
 
   play() {
-    if (data.rmIsPause.st) {
+    if (dt.rmIsPause.st) {
       // resume game
     } else {
       start();
     }
-    data.rmIsPause.st = false;
+    dt.rmIsPause.st = false;
   }
 
   move() {
-    if (data.rmArah.st == 'up') {
-      final x = [data.rmSnake.st[0][0], data.rmSnake.st[0][1] - 1];
+    if (dt.rmArah.st == 'up') {
+      final x = [dt.rmSnake.st[0][0], dt.rmSnake.st[0][1] - 1];
 
-      data.rmSnake.st = [...data.rmSnake.st]..insert(0, x);
+      dt.rmSnake.st = [...dt.rmSnake.st]..insert(0, x);
     }
 
-    if (data.rmArah.st == 'down') {
-      final x = [data.rmSnake.st[0][0], data.rmSnake.st[0][1] + 1];
-      data.rmSnake.st = [...data.rmSnake.st]..insert(0, x);
+    if (dt.rmArah.st == 'down') {
+      final x = [dt.rmSnake.st[0][0], dt.rmSnake.st[0][1] + 1];
+      dt.rmSnake.st = [...dt.rmSnake.st]..insert(0, x);
     }
 
-    if (data.rmArah.st == 'left') {
-      final x = [data.rmSnake.st[0][0] - 1, data.rmSnake.st[0][1]];
-      data.rmSnake.st = [...data.rmSnake.st]..insert(0, x);
+    if (dt.rmArah.st == 'left') {
+      final x = [dt.rmSnake.st[0][0] - 1, dt.rmSnake.st[0][1]];
+      dt.rmSnake.st = [...dt.rmSnake.st]..insert(0, x);
     }
 
-    if (data.rmArah.st == 'right') {
-      final x = [data.rmSnake.st[0][0] + 1, data.rmSnake.st[0][1]];
-      data.rmSnake.st = [...data.rmSnake.st]..insert(0, x);
+    if (dt.rmArah.st == 'right') {
+      final x = [dt.rmSnake.st[0][0] + 1, dt.rmSnake.st[0][1]];
+      dt.rmSnake.st = [...dt.rmSnake.st]..insert(0, x);
     }
 
-    debugPrint(data.rmSnake2.st.toString());
+    debugPrint(dt.rmSnake2.st.toString());
   }
 
   start() {
-    data.rmIsRunning.st = true;
+    dt.rmIsRunning.st = true;
     Timer.periodic(
-      Duration(milliseconds: data.rmInitDuration.st),
+      Duration(milliseconds: dt.rmInitDuration.st),
       (timer) {
-        if (data.rmIsPause.st == false) {
-          data.timerx = timer;
+        if (dt.rmIsPause.st == false) {
+          dt.timerx = timer;
           move();
           through();
           updateIsFinish();
@@ -129,43 +129,43 @@ class BattleSnakeCtrl {
   }
 
   through() {
-    if (data.rmSnake.st[0][0] < 0) {
-      final snake = data.rmSnake.st;
-      snake[0][0] = data.totalX - 2;
+    if (dt.rmSnake.st[0][0] < 0) {
+      final snake = dt.rmSnake.st;
+      snake[0][0] = dt.totalX - 2;
     }
-    if (data.rmSnake.st[0][0] > data.totalX - 1) {
-      final snake = data.rmSnake.st;
+    if (dt.rmSnake.st[0][0] > dt.totalX - 1) {
+      final snake = dt.rmSnake.st;
       snake[0][0] = 0;
     }
-    if (data.rmSnake.st[0][1] < 0) {
-      final snake = data.rmSnake.st;
-      snake[0][1] = data.totalY - 2;
+    if (dt.rmSnake.st[0][1] < 0) {
+      final snake = dt.rmSnake.st;
+      snake[0][1] = dt.totalY - 2;
     }
-    if (data.rmSnake.st[0][1] > data.totalY - 1) {
-      final snake = data.rmSnake.st;
+    if (dt.rmSnake.st[0][1] > dt.totalY - 1) {
+      final snake = dt.rmSnake.st;
       snake[0][1] = 0;
     }
   }
 
   updateIsFinish() {
     if (touchBody() || collisions() || touchBodySnake2()) {
-      data.rmIsRunning.st = false;
+      dt.rmIsRunning.st = false;
     }
   }
 
   checkIsFinish() {
-    if (data.rmIsRunning.st == false) {
-      data.timerx.cancel();
-      Dialogs.gameOver('Your point is ${data.rmPoint.st}');
+    if (dt.rmIsRunning.st == false) {
+      dt.timerx.cancel();
+      Dialogs.gameOver('Your point is ${dt.rmPoint.st}');
     }
   }
 
   bool touchBody() {
     var z = false;
-    final headX = data.rmSnake.st[0][0];
-    final headY = data.rmSnake.st[0][1];
-    for (var i = 1; i < data.rmSnake.st.length; i++) {
-      if (headX == data.rmSnake.st[i][0] && headY == data.rmSnake.st[i][1]) {
+    final headX = dt.rmSnake.st[0][0];
+    final headY = dt.rmSnake.st[0][1];
+    for (var i = 1; i < dt.rmSnake.st.length; i++) {
+      if (headX == dt.rmSnake.st[i][0] && headY == dt.rmSnake.st[i][1]) {
         z = true;
       }
     }
@@ -173,17 +173,17 @@ class BattleSnakeCtrl {
   }
 
   bool collisions() =>
-      data.rmSnake.st[0][0] == data.rmSnake2.st[0][0] &&
-      data.rmSnake.st[0][1] == data.rmSnake2.st[0][1];
+      dt.rmSnake.st[0][0] == dt.rmSnake2.st[0][0] &&
+      dt.rmSnake.st[0][1] == dt.rmSnake2.st[0][1];
 
   //* ----- ----- ----- ----- ----- ----- ----- ----- -----
 
   start2() {
-    data.rmIsRunning.st = true;
+    dt.rmIsRunning.st = true;
     Timer.periodic(
       const Duration(milliseconds: 500),
       (timer2) {
-        if (data.rmIsPause.st == false) {
+        if (dt.rmIsPause.st == false) {
           move2();
           throughSnake2();
           gameOverSnake2(timer2);
@@ -194,55 +194,55 @@ class BattleSnakeCtrl {
   }
 
   move2() {
-    var snakeX = data.rmSnake2.st[0][0];
-    var snakeY = data.rmSnake2.st[0][1];
+    var snakeX = dt.rmSnake2.st[0][0];
+    var snakeY = dt.rmSnake2.st[0][1];
 
-    if (snakeX == data.rmFoodX.st) {
-      if (snakeY > data.rmFoodY.st) {
-        data.rmArahSnake2.st = 'up';
+    if (snakeX == dt.rmFoodX.st) {
+      if (snakeY > dt.rmFoodY.st) {
+        dt.rmArahSnake2.st = 'up';
       }
-      if (snakeY < data.rmFoodY.st) {
-        data.rmArahSnake2.st = 'down';
+      if (snakeY < dt.rmFoodY.st) {
+        dt.rmArahSnake2.st = 'down';
       }
     } else {
-      if (snakeX > data.rmFoodX.st) {
-        data.rmArahSnake2.st = 'left';
+      if (snakeX > dt.rmFoodX.st) {
+        dt.rmArahSnake2.st = 'left';
       }
-      if (snakeX < data.rmFoodX.st) {
-        data.rmArahSnake2.st = 'right';
+      if (snakeX < dt.rmFoodX.st) {
+        dt.rmArahSnake2.st = 'right';
       }
     }
 
-    debugPrint(data.rmArahSnake2.st);
+    debugPrint(dt.rmArahSnake2.st);
 
-    if (data.rmArahSnake2.st == 'up') {
-      final x = [data.rmSnake2.st[0][0], data.rmSnake2.st[0][1] - 1];
-      data.rmSnake2.st = [...data.rmSnake2.st]..insert(0, x);
+    if (dt.rmArahSnake2.st == 'up') {
+      final x = [dt.rmSnake2.st[0][0], dt.rmSnake2.st[0][1] - 1];
+      dt.rmSnake2.st = [...dt.rmSnake2.st]..insert(0, x);
     }
 
-    if (data.rmArahSnake2.st == 'down') {
-      final x = [data.rmSnake2.st[0][0], data.rmSnake2.st[0][1] + 1];
-      data.rmSnake2.st = [...data.rmSnake2.st]..insert(0, x);
+    if (dt.rmArahSnake2.st == 'down') {
+      final x = [dt.rmSnake2.st[0][0], dt.rmSnake2.st[0][1] + 1];
+      dt.rmSnake2.st = [...dt.rmSnake2.st]..insert(0, x);
     }
 
-    if (data.rmArahSnake2.st == 'left') {
-      final x = [data.rmSnake2.st[0][0] - 1, data.rmSnake2.st[0][1]];
-      data.rmSnake2.st = [...data.rmSnake2.st]..insert(0, x);
+    if (dt.rmArahSnake2.st == 'left') {
+      final x = [dt.rmSnake2.st[0][0] - 1, dt.rmSnake2.st[0][1]];
+      dt.rmSnake2.st = [...dt.rmSnake2.st]..insert(0, x);
     }
 
-    if (data.rmArahSnake2.st == 'right') {
-      final x = [data.rmSnake2.st[0][0] + 1, data.rmSnake2.st[0][1]];
-      data.rmSnake2.st = [...data.rmSnake2.st]..insert(0, x);
+    if (dt.rmArahSnake2.st == 'right') {
+      final x = [dt.rmSnake2.st[0][0] + 1, dt.rmSnake2.st[0][1]];
+      dt.rmSnake2.st = [...dt.rmSnake2.st]..insert(0, x);
     }
   }
 
   randomFood2() {
-    if (data.rmSnake2.st[0][0] == data.rmFoodX.st &&
-        data.rmSnake2.st[0][1] == data.rmFoodY.st) {
-      data.rmFoodX.st = Random().nextInt(data.totalX);
-      data.rmFoodY.st = Random().nextInt(data.totalY);
+    if (dt.rmSnake2.st[0][0] == dt.rmFoodX.st &&
+        dt.rmSnake2.st[0][1] == dt.rmFoodY.st) {
+      dt.rmFoodX.st = Random().nextInt(dt.totalX);
+      dt.rmFoodY.st = Random().nextInt(dt.totalY);
     } else {
-      data.rmSnake2.st.removeLast();
+      dt.rmSnake2.st.removeLast();
     }
   }
 
@@ -250,41 +250,41 @@ class BattleSnakeCtrl {
     if (touchBody() ||
         collisions() ||
         touchBodySnake2() ||
-        !data.rmIsRunning.st) {
+        !dt.rmIsRunning.st) {
       timer2.cancel();
     }
   }
 
   throughSnake2() {
-    if (data.rmSnake2.st[0][0] < 0) {
-      final snake = data.rmSnake2.st;
-      snake[0][0] = data.totalX - 2;
+    if (dt.rmSnake2.st[0][0] < 0) {
+      final snake = dt.rmSnake2.st;
+      snake[0][0] = dt.totalX - 2;
     }
-    if (data.rmSnake2.st[0][0] > data.totalX - 1) {
-      final snake = data.rmSnake2.st;
+    if (dt.rmSnake2.st[0][0] > dt.totalX - 1) {
+      final snake = dt.rmSnake2.st;
       snake[0][0] = 0;
     }
-    if (data.rmSnake2.st[0][1] < 0) {
-      final snake = data.rmSnake2.st;
-      snake[0][1] = data.totalY - 2;
+    if (dt.rmSnake2.st[0][1] < 0) {
+      final snake = dt.rmSnake2.st;
+      snake[0][1] = dt.totalY - 2;
     }
-    if (data.rmSnake2.st[0][1] > data.totalY - 1) {
-      final snake = data.rmSnake2.st;
+    if (dt.rmSnake2.st[0][1] > dt.totalY - 1) {
+      final snake = dt.rmSnake2.st;
       snake[0][1] = 0;
     }
   }
 
   bool touchBodySnake2() {
     var z = false;
-    for (var i = 1; i < data.rmSnake2.st.length; i++) {
-      if (data.rmSnake.st[0][0] == data.rmSnake2.st[i][0] &&
-          data.rmSnake.st[0][1] == data.rmSnake2.st[i][1]) {
+    for (var i = 1; i < dt.rmSnake2.st.length; i++) {
+      if (dt.rmSnake.st[0][0] == dt.rmSnake2.st[i][0] &&
+          dt.rmSnake.st[0][1] == dt.rmSnake2.st[i][1]) {
         z = true;
       }
     }
-    for (var i = 1; i < data.rmSnake.st.length; i++) {
-      if (data.rmSnake2.st[0][0] == data.rmSnake.st[i][0] &&
-          data.rmSnake2.st[0][1] == data.rmSnake.st[i][1]) {
+    for (var i = 1; i < dt.rmSnake.st.length; i++) {
+      if (dt.rmSnake2.st[0][0] == dt.rmSnake.st[i][0] &&
+          dt.rmSnake2.st[0][1] == dt.rmSnake.st[i][1]) {
         z = true;
       }
     }

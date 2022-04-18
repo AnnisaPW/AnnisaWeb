@@ -4,7 +4,7 @@ class BattleSnakeItemGridView extends StatelessWidget {
   const BattleSnakeItemGridView({Key? key}) : super(key: key);
 
   BattleSnakeCtrl get ct => battleSnakeCtrl;
-  BattleSnakeData get dt => battleSnakeCtrl.data;
+  BattleSnakeData get dt => battleSnakeData.st;
 
   // @override
   // Widget build(BuildContext context) {

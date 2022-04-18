@@ -18,5 +18,4 @@ part 'app.dart';
 part 'inits.dart';
 part 'navigator.dart';
 part 'overrides.dart';
-part 'pages.dart';
 part 'routes.dart';

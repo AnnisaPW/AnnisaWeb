@@ -1,7 +1,7 @@
 part of '_index.dart';
 
 BattleSnakeCtrl get ct => battleSnakeCtrl;
-BattleSnakeData get dt => battleSnakeCtrl.data;
+BattleSnakeData get dt => battleSnakeData.st;
 
 SingleSnakeCtrl get ct2 => singleSnakeCtrl;
 SingleSnakeData get dt2 => singleSnakeCtrl.data;

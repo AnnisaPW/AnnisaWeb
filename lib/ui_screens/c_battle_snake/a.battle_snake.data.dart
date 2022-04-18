@@ -1,5 +1,13 @@
 part of '_index.dart';
 
+final battleSnakeData = RM.inject<BattleSnakeData>(
+  () => BattleSnakeData(),
+  debugPrintWhenNotifiedPreMessage: 'BattleSnakeData',
+  // sideEffects: SideEffects(
+  //   initState: () => battleSnakeCtrl.init(),
+  // ),
+);
+
 class BattleSnakeData {
   final String title = 'Snake Game Battle';
   final String imageSnake = './assets/images/snakeAladdin.png';

@@ -33,7 +33,7 @@ class BattleSnakeItem extends StatelessWidget {
   }
 
   BattleSnakeCtrl get ct => battleSnakeCtrl;
-  BattleSnakeData get dt => battleSnakeCtrl.data;
+  BattleSnakeData get dt => battleSnakeData.st;
 
   @override
   Widget build(BuildContext context) {
