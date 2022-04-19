@@ -2,10 +2,8 @@ part of '_index.dart';
 
 final nav = RM.injectNavigator(
   routes: {
-    // Routes.root: (data) => const SingleSnakeXView(),
-    // Routes.root: (data) => const SnakeView(),
     Routes.root: (data) => const HomeView(),
-    // Routes.root: (data) => const HomeSnakeView(),
+
     Routes.xsplash: (data) => const XsplashView(),
     Routes.xlogin: (data) => const XloginView(),
     Routes.xregis: (data) => const XregisView(),
@@ -31,7 +29,6 @@ final nav = RM.injectNavigator(
         dt.rmIsPause.st = true;
         Dialogs.gameOver('Confirmation',
             'Your point is ${dt.rmPoint.st}. Do you want to exit?');
-        // RM.navigate.forceBack();
       } else if (dt.rmIsRunning.st == false) {
         RM.navigate.forceBack();
         logger.wtf('exit from battle snake');
