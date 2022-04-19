@@ -133,7 +133,6 @@ class SingleSnakeCtrl {
 
   checkIsFinish() {
     if (dt.rmIsRunning.st == false) {
-      // dt.timerX.cancel();
       dt.rmIsPause.st = true;
       Dialogs.gameOver2('Game Over', 'Your point is ${dt.rmPoint.st}');
     }

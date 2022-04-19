@@ -8,8 +8,6 @@ class HomeBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final sizeHeight = MediaQuery.of(context).size.height;
-
     return Center(
       child: SingleChildScrollView(
         padding: const EdgeInsets.fromLTRB(0, 30, 0, 30),
@@ -23,9 +21,6 @@ class HomeBody extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    // SizedBox(
-                    // child: Text('${sizeWidth} , ${sizeHeight}'),
-                    // ),
                     const SizedBox(height: 100),
                     const HomeBiodata(),
                     const SizedBox(height: 10),

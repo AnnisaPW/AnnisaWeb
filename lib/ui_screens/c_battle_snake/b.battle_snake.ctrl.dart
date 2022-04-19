@@ -75,7 +75,6 @@ class BattleSnakeCtrl {
   stop() {
     dt.rmIsPause.st = false;
     dt.rmIsRunning.st = false;
-    // Dialogs.stopGame('Are you sure to stop this game?');
   }
 
   play() {

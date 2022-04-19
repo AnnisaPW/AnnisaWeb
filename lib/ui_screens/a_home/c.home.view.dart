@@ -27,7 +27,6 @@ class HomeView extends StatelessWidget {
             ),
           ),
           const HomeGradient(),
-          // HomeLandscape(),
           const HomeBody()
         ],
       ),

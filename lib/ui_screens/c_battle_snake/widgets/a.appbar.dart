@@ -8,17 +8,12 @@ class BattleSnakeAppbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final sizeWidth = MediaQuery.of(context).size.width;
-    // final sizeHeight = MediaQuery.of(context).size.height;
-
     return AppBar(
       title: Text(dt.title),
-      // leading: Text('${sizeWidth} ,${sizeHeight}'),
       leading: IconButton(
         icon: const Icon(Icons.arrow_back_ios),
         onPressed: () => nav.back(),
       ),
-      // leading: Text(dt.rmArah.st),
       actions: [
         Row(
           children: const [

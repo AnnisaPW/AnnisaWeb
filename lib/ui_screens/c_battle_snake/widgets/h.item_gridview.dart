@@ -6,13 +6,6 @@ class BattleSnakeItemGridView extends StatelessWidget {
   BattleSnakeCtrl get ct => battleSnakeCtrl;
   BattleSnakeData get dt => battleSnakeData.st;
 
-  // @override
-  // Widget build(BuildContext context) {
-  //   return OnBuilder<List<List<int>>>.data(
-  //     listenTo: dt.rmSnake2,
-  //     builder: (data) => Text(dt.rmSnake2.st.toString()),
-  //   );
-  // }
   Widget? itemX(int z) {
     switch (z) {
       case 0:

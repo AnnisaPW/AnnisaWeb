@@ -8,10 +8,7 @@ class HomeSnakeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final sizeWidth = MediaQuery.of(context).size.width;
-
     return Scaffold(
-      // floatingActionButton: const HomeSnakeFab(),
       appBar: const PreferredSize(
         preferredSize: Size.fromHeight(56),
         child: HomeSnakeAppbar(),
