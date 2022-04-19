@@ -22,6 +22,7 @@ class BattleSnakeData {
   List<List<ReactiveModel<int?>>> listX = [];
 
   late Timer timerx;
+  late Timer timer2;
 
 // reactive models
   final rmInitDuration = 500.inj();

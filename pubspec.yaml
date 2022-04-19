@@ -11,6 +11,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   simple_gesture_detector:
   states_rebuilder: ^6.0.0
+  url_strategy: ^0.2.0
   # mock
   firebase_auth_mocks: ^0.8.2
   google_sign_in_mocks: ^0.2.1

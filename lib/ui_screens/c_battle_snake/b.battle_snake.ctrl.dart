@@ -73,9 +73,9 @@ class BattleSnakeCtrl {
   pause() => dt.rmIsPause.st = !dt.rmIsPause.st;
 
   stop() {
-    dt.rmIsPause.st = true;
-    // dt.rmIsRunning.st = false;
-    Dialogs.stopGame('Are you sure to stop this game?');
+    dt.rmIsPause.st = false;
+    dt.rmIsRunning.st = false;
+    // Dialogs.stopGame('Are you sure to stop this game?');
   }
 
   play() {
@@ -156,8 +156,9 @@ class BattleSnakeCtrl {
 
   checkIsFinish() {
     if (dt.rmIsRunning.st == false) {
-      dt.timerx.cancel();
-      Dialogs.gameOver('Your point is ${dt.rmPoint.st}');
+      // dt.timerx.cancel();
+      dt.rmIsPause.st = true;
+      Dialogs.gameOver('Game Over', 'Your point is ${dt.rmPoint.st}');
     }
   }
 
@@ -185,9 +186,10 @@ class BattleSnakeCtrl {
       const Duration(milliseconds: 500),
       (timer2) {
         if (dt.rmIsPause.st == false) {
+          dt.timer2 = timer2;
           move2();
           throughSnake2();
-          gameOverSnake2(timer2);
+          gameOverSnake2();
           randomFood2();
         }
       },
@@ -247,12 +249,12 @@ class BattleSnakeCtrl {
     }
   }
 
-  gameOverSnake2(Timer timer2) {
+  gameOverSnake2() {
     if (touchBody() ||
         collisions() ||
         touchBodySnake2() ||
         !dt.rmIsRunning.st) {
-      timer2.cancel();
+      dt.timer2.cancel();
     }
   }
 

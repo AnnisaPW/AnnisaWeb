@@ -11,6 +11,15 @@ class HomeBtnSnakeGame extends StatelessWidget {
     return OutlinedButton(
       child: const Text('Click me'),
       onPressed: () => nav.to(Routes.homeSnake),
+      // onPressed: () {
+      // final x =
+      // RM.navigate.navigatorKey.currentState!.context.routeData.location;
+
+      // final x = context.routeData.location;
+      // logger.wtf(x);
+
+      // nav.to(Routes.homeSnake);
+      // },
     );
   }
 }

@@ -20,7 +20,7 @@ class HomeSnakeBtnSingle extends StatelessWidget {
           fontSize: 20,
         ),
       ),
-      onPressed: () => nav.to(Routes.singleSnakeX),
+      onPressed: () => nav.to(Routes.singleSnake),
     );
   }
 }
