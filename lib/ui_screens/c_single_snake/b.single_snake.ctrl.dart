@@ -30,6 +30,7 @@ class SingleSnakeCtrl {
     dt.rmFoodY.refresh();
     dt.rmIsRunning.refresh();
     dt.rmIsPause.refresh();
+    dt.rmInitDuration.refresh();
   }
 
   randomFood() {

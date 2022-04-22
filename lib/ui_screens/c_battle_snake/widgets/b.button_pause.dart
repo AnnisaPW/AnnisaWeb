@@ -16,7 +16,7 @@ class BattleSnakeBtnPause extends StatelessWidget {
             Icons.pause,
             color: dt.rmIsPause.st ? Colors.green : Colors.orange,
           ),
-          onPressed: !dt.rmIsRunning.st ? null : () => ct.pause(),
+          onPressed: !dt.rmIsRunning.st ? null : () => ct.isPause(),
         ),
       ),
     );

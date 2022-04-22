@@ -58,7 +58,7 @@ class BattleSnakeItem extends StatelessWidget {
                 quarterTurns: z == 0
                     ? 0
                     : getRotate(
-                        z == 1 ? dt.rmArah.st : dt.rmArahSnake2.st,
+                        z == 1 ? dt.rmArahSnake1.st : dt.rmArahSnake2.st,
                       ),
                 child: CircleAvatar(
                   backgroundColor: Colors.transparent,

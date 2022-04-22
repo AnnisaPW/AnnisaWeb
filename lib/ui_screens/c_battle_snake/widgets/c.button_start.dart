@@ -16,8 +16,8 @@ class BattleSnakeBtnStart extends StatelessWidget {
         ),
         onPressed: () {
           if (!dt.rmIsRunning.st) {
-            ct.start();
-            ct.start2();
+            ct.getStart1();
+            ct.getStart2();
           } else {
             ct.stop();
           }

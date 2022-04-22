@@ -31,7 +31,7 @@ class Dialogs {
                     ? nav.backUntil(Routes.homeSnake)
                     : nav.back();
                 ct.reset();
-                dt.timerx.cancel();
+                dt.timer1.cancel();
                 dt.timer2.cancel();
               },
             ),

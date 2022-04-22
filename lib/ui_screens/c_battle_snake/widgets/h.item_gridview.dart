@@ -36,13 +36,13 @@ class BattleSnakeItemGridView extends StatelessWidget {
           var indexX = index % dt.totalX;
           var indexY = (index / dt.totalX).floor();
 
-          var isHeadSnake = (indexX == dt.rmSnake.st[0][0]) &&
-              (indexY == dt.rmSnake.st[0][1]);
+          var isHeadSnake = (indexX == dt.rmSnake1.st[0][0]) &&
+              (indexY == dt.rmSnake1.st[0][1]);
           var isHeadSnake2 = (indexX == dt.rmSnake2.st[0][0]) &&
               (indexY == dt.rmSnake2.st[0][1]);
           var isFood = (indexX == dt.rmFoodX.st) && (indexY == dt.rmFoodY.st);
 
-          for (var item in dt.rmSnake.st) {
+          for (var item in dt.rmSnake1.st) {
             if (item[0] == indexX && item[1] == indexY) {
               z = -1;
             }
@@ -66,7 +66,7 @@ class BattleSnakeItemGridView extends StatelessWidget {
             child: Container(
               child: itemX(z),
             ),
-            onTap: () => ct.tappedCoordinat(indexX, indexY),
+            onTap: () => ct.onTapCoordinat(indexX, indexY),
           );
         },
       ),

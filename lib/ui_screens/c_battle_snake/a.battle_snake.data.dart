@@ -21,14 +21,14 @@ class BattleSnakeData {
 
   List<List<ReactiveModel<int?>>> listX = [];
 
-  late Timer timerx;
+  late Timer timer1;
   late Timer timer2;
 
 // reactive models
   final rmInitDuration = 500.inj();
   final rmPoint = 0.inj();
 
-  final rmSnake = [
+  final rmSnake1 = [
     [0, 2],
     [0, 1],
     [0, 0]
@@ -40,12 +40,13 @@ class BattleSnakeData {
     [19, 0]
   ].inj();
 
-  final rmArah = 'down'.inj();
+  final rmArahSnake1 = 'down'.inj();
   final rmArahSnake2 = 'down'.inj();
 
   final rmIsRunning = false.inj();
   final rmIsPause = false.inj();
 
-  late final rmFoodX = RM.inject<int>(() => battleSnakeCtrl.randomFood()[0]);
-  late final rmFoodY = RM.inject(() => battleSnakeCtrl.randomFood()[1]);
+  late final rmFoodX =
+      RM.inject<int>(() => battleSnakeCtrl.getRandomFood1()[0]);
+  late final rmFoodY = RM.inject(() => battleSnakeCtrl.getRandomFood1()[1]);
 }
