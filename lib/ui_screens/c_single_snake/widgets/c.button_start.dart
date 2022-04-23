@@ -16,7 +16,7 @@ class SingleSnakeBtnStart extends StatelessWidget {
         ),
         onPressed: () {
           if (!dt.rmIsRunning.st) {
-            ct.start();
+            ct.getStart();
           } else {
             ct.stop();
           }

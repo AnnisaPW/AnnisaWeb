@@ -5,18 +5,22 @@ final singleSnakeCtrl = SingleSnakeCtrl();
 class SingleSnakeCtrl {
   SingleSnakeData get dt => singleSnakeData.st;
 
-  tappedCoordinat(int x, int y) {
-    debugPrint('$x , $y');
-    if (dt.rmArah.st == 'up' || dt.rmArah.st == 'down') {
-      if (x < dt.rmSnake.st[0][0]) {
+  onTapCoordinat(int xCoord, int yCoord) {
+    debugPrint('$xCoord , $yCoord');
+    final xSnake = dt.rmSnake.st[0][0];
+    final ySnake = dt.rmSnake.st[0][1];
+    var arahSnake = dt.rmArah.st;
+
+    if (arahSnake == 'up' || arahSnake == 'down') {
+      if (xCoord < xSnake) {
         dt.rmArah.st = 'left';
-      } else if (x > dt.rmSnake.st[0][0]) {
+      } else if (xCoord > xSnake) {
         dt.rmArah.st = 'right';
       }
     } else {
-      if (y < dt.rmSnake.st[0][1]) {
+      if (yCoord < ySnake) {
         dt.rmArah.st = 'up';
-      } else if (y > dt.rmSnake.st[0][1]) {
+      } else if (yCoord > ySnake) {
         dt.rmArah.st = 'down';
       }
     }
@@ -33,19 +37,60 @@ class SingleSnakeCtrl {
     dt.rmInitDuration.refresh();
   }
 
-  randomFood() {
-    if (dt.rmSnake.st[0][0] == dt.rmFoodX.st &&
-        dt.rmSnake.st[0][1] == dt.rmFoodY.st) {
-      dt.rmFoodX.st = Random().nextInt(dt.totalX);
+  // randomFood() {
+  //   if (dt.rmSnake.st[0][0] == dt.rmFoodX.st &&
+  //       dt.rmSnake.st[0][1] == dt.rmFoodY.st) {
+  //     dt.rmFoodX.st = Random().nextInt(dt.totalX);
 
-      dt.rmFoodY.st = Random().nextInt(dt.totalY);
+  //     dt.rmFoodY.st = Random().nextInt(dt.totalY);
+  //     dt.rmPoint.st = dt.rmPoint.st + 1;
+  //     dt.timerX.cancel();
+
+  //     dt.rmInitDuration.st = (dt.rmInitDuration.st * 0.9).floor();
+  //     start();
+  //   } else {
+  //     dt.rmSnake.st.removeLast();
+  //   }
+  // }
+
+  List<int> getRandomFood1() {
+    var stringSnake = dt.rmSnake.st.map((e) => e.toString());
+    String stringFood;
+    int foodX;
+    int foodY;
+
+    do {
+      foodX = Random().nextInt(dt.totalX);
+      foodY = Random().nextInt(dt.totalY);
+      stringFood = '[$foodX, $foodY]';
+
+      debugPrint(stringFood);
+    } while (stringSnake.contains(stringFood));
+
+    dt.rmFoodX.st = foodX;
+    dt.rmFoodY.st = foodY;
+
+    return [foodX, foodY];
+  }
+
+  isEatSnake1() {
+    final snake = dt.rmSnake.st;
+    final xSnake = dt.rmSnake.st[0][0];
+    final ySnake = dt.rmSnake.st[0][1];
+    final foodX = dt.rmFoodX.st;
+    final foodY = dt.rmFoodY.st;
+
+    if (xSnake == foodX && ySnake == foodY) {
+      dt.rmFoodX.st = getRandomFood1()[0];
+      dt.rmFoodY.st = getRandomFood1()[1];
+
       dt.rmPoint.st = dt.rmPoint.st + 1;
       dt.timerX.cancel();
 
       dt.rmInitDuration.st = (dt.rmInitDuration.st * 0.9).floor();
-      start();
+      getStart();
     } else {
-      dt.rmSnake.st.removeLast();
+      snake.removeLast();
     }
   }
 
@@ -62,35 +107,36 @@ class SingleSnakeCtrl {
     if (dt.rmIsPause.st) {
       // resume game
     } else {
-      start();
+      getStart();
     }
     dt.rmIsPause.st = false;
   }
 
   move() {
-    if (dt.rmArah.st == 'up') {
+    final arahSnake = dt.rmArah.st;
+    if (arahSnake == 'up') {
       final x = [dt.rmSnake.st[0][0], dt.rmSnake.st[0][1] - 1];
 
       dt.rmSnake.st = [...dt.rmSnake.st]..insert(0, x);
     }
 
-    if (dt.rmArah.st == 'down') {
+    if (arahSnake == 'down') {
       final x = [dt.rmSnake.st[0][0], dt.rmSnake.st[0][1] + 1];
       dt.rmSnake.st = [...dt.rmSnake.st]..insert(0, x);
     }
 
-    if (dt.rmArah.st == 'left') {
+    if (arahSnake == 'left') {
       final x = [dt.rmSnake.st[0][0] - 1, dt.rmSnake.st[0][1]];
       dt.rmSnake.st = [...dt.rmSnake.st]..insert(0, x);
     }
 
-    if (dt.rmArah.st == 'right') {
+    if (arahSnake == 'right') {
       final x = [dt.rmSnake.st[0][0] + 1, dt.rmSnake.st[0][1]];
       dt.rmSnake.st = [...dt.rmSnake.st]..insert(0, x);
     }
   }
 
-  start() {
+  getStart() {
     dt.rmIsRunning.st = true;
     Timer.periodic(
       Duration(milliseconds: dt.rmInitDuration.st),
@@ -98,37 +144,43 @@ class SingleSnakeCtrl {
         if (dt.rmIsPause.st == false) {
           dt.timerX = timer;
           move();
-          through();
+          // moveSnake(dt.rmSnake1.st, dt.rmArahSnake1.st);
+          isThroughSnake();
           updateIsFinish();
           checkIsFinish();
-          randomFood();
+          isEatSnake1();
         }
       },
     );
   }
 
-  through() {
-    if (dt.rmSnake.st[0][0] < 0) {
+  isThroughSnake() {
+    final xSnake = dt.rmSnake.st[0][0];
+    final ySnake = dt.rmSnake.st[0][1];
+
+    if (xSnake < 0) {
       final snake = dt.rmSnake.st;
-      snake[0][0] = dt.totalX - 2;
+      snake[0][0] = dt.totalX - 1;
     }
-    if (dt.rmSnake.st[0][0] > dt.totalX - 1) {
+    if (xSnake > dt.totalX - 1) {
       final snake = dt.rmSnake.st;
       snake[0][0] = 0;
     }
-    if (dt.rmSnake.st[0][1] < 0) {
+    if (ySnake < 0) {
       final snake = dt.rmSnake.st;
-      snake[0][1] = dt.totalY - 2;
+      snake[0][1] = dt.totalY - 1;
     }
-    if (dt.rmSnake.st[0][1] > dt.totalY - 1) {
+    if (ySnake > dt.totalY - 1) {
       final snake = dt.rmSnake.st;
       snake[0][1] = 0;
     }
   }
 
   updateIsFinish() {
-    if (touchBody()) {
-      dt.rmIsRunning.st = false;
+    if (isTouchBody()) {
+      return dt.rmIsRunning.st = false;
+    } else {
+      return null;
     }
   }
 
@@ -139,12 +191,14 @@ class SingleSnakeCtrl {
     }
   }
 
-  bool touchBody() {
+  bool isTouchBody() {
     var z = false;
     final headX = dt.rmSnake.st[0][0];
     final headY = dt.rmSnake.st[0][1];
-    for (var i = 1; i < dt.rmSnake.st.length; i++) {
-      if (headX == dt.rmSnake.st[i][0] && headY == dt.rmSnake.st[i][1]) {
+    final snake1 = dt.rmSnake.st;
+
+    for (var i = 1; i < snake1.length; i++) {
+      if (headX == snake1[i][0] && headY == snake1[i][1]) {
         z = true;
       }
     }

@@ -57,7 +57,7 @@ class SingleSnakeItemGridView extends StatelessWidget {
             child: Container(
               child: itemX(z),
             ),
-            onTap: () => ct.tappedCoordinat(indexX, indexY),
+            onTap: () => ct.onTapCoordinat(indexX, indexY),
           );
         },
       ),

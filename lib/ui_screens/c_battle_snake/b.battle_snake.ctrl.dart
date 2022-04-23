@@ -8,7 +8,7 @@ class BattleSnakeCtrl {
   onTapCoordinat(int xCoord, int yCoord) {
     debugPrint('$xCoord , $yCoord');
     final xSnake1 = dt.rmSnake1.st[0][0];
-    final xSnake1y = dt.rmSnake1.st[0][1];
+    final ySnake1 = dt.rmSnake1.st[0][1];
     var arahSnake1 = dt.rmArahSnake1.st;
 
     if (arahSnake1 == 'up' || arahSnake1 == 'down') {
@@ -18,9 +18,9 @@ class BattleSnakeCtrl {
         dt.rmArahSnake1.st = 'right';
       }
     } else {
-      if (yCoord < xSnake1y) {
+      if (yCoord < ySnake1) {
         dt.rmArahSnake1.st = 'up';
-      } else if (yCoord > xSnake1y) {
+      } else if (yCoord > ySnake1) {
         dt.rmArahSnake1.st = 'down';
       }
     }

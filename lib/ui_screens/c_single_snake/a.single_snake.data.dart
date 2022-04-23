@@ -31,12 +31,16 @@ class SingleSnakeData {
 
   final rmArah = 'down'.inj();
 
-  late final rmFoodX = RM.inject<int>(
-    () => Random().nextInt(totalX),
-  );
-  late final rmFoodY = RM.inject(
-    () => Random().nextInt(totalY),
-  );
+  // late final rmFoodX = RM.inject<int>(
+  //   () => Random().nextInt(totalX),
+  // );
+  // late final rmFoodY = RM.inject(
+  //   () => Random().nextInt(totalY),
+  // );
+
+  late final rmFoodX =
+      RM.inject<int>(() => singleSnakeCtrl.getRandomFood1()[0]);
+  late final rmFoodY = RM.inject(() => singleSnakeCtrl.getRandomFood1()[1]);
 
   final rmIsRunning = false.inj();
   final rmIsPause = false.inj();
