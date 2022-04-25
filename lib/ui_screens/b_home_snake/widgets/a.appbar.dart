@@ -8,8 +8,11 @@ class HomeSnakeAppbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // final sizeWidth = MediaQuery.of(context).size.width;
+    // final sizeHeight = MediaQuery.of(context).size.height;
     return AppBar(
       title: Text(dt.title),
+      // leading: Text('$sizeWidth, $sizeHeight'),
     );
   }
 }

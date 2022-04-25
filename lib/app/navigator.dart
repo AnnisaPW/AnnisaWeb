@@ -3,6 +3,7 @@ part of '_index.dart';
 final nav = RM.injectNavigator(
   routes: {
     Routes.root: (data) => const HomeView(),
+    // Routes.root: (data) => const HomeSnakeView(),
 
     Routes.xsplash: (data) => const XsplashView(),
     Routes.xlogin: (data) => const XloginView(),
