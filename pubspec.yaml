@@ -48,6 +48,7 @@ dependencies:
   http:
   dio:
   alice:
+  animated_text_kit: ^4.2.1
   #
 
   # pkg_master:

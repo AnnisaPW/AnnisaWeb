@@ -1,7 +1,7 @@
 part of '../_index.dart';
 
-class HomeSnakeImageWithClouds extends StatelessWidget {
-  const HomeSnakeImageWithClouds({
+class HomeSnakeAnimatedSide extends StatelessWidget {
+  const HomeSnakeAnimatedSide({
     Key? key,
   }) : super(key: key);
 
@@ -22,7 +22,7 @@ class HomeSnakeImageWithClouds extends StatelessWidget {
         );
 
         return Visibility(
-          visible: sizeWidth > 1200,
+          visible: sizeWidth >= 1200,
           child: Positioned(
             right: 260,
             // bottom: 190,

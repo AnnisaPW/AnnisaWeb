@@ -14,7 +14,7 @@ class HomeSnakeLampImage extends StatelessWidget {
     final sizeHeight = MediaQuery.of(context).size.height;
 
     return Visibility(
-      visible: sizeWidth >= 1100,
+      visible: sizeWidth >= 1200,
       child: Positioned(
         right: 10,
         bottom: 10,
