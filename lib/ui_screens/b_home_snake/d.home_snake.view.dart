@@ -42,9 +42,10 @@ class HomeSnakeView extends StatelessWidget {
               ),
             ),
           ),
-          // HomeSnakeLampImage(),
-          // HomeSnakeImageClouds(),
-          // HomeSnakeImage(),
+          Visibility(
+            visible: sizeWidth < 1100,
+            child: const HomeSnakeAnimate(),
+          ),
           const HomeSnakeBtnPlay(),
         ],
       ),

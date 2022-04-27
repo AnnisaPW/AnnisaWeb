@@ -15,3 +15,4 @@ part 'widgets/e.image_snake.dart';
 part 'widgets/f.button_play.dart';
 part 'widgets/g.button_snake_single.dart';
 part 'widgets/h.button_snake_battle.dart';
+part 'widgets/i.image_snake_animate.dart';

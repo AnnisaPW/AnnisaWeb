@@ -11,15 +11,11 @@ final homeSnakeData = RM.inject<HomeSnakeData>(
 class HomeSnakeData {
   final String title = 'Home Snake';
 
-  final String imageSnakeAladdin = './assets/images/snakeAladdin.png';
-
   final String imageAppleX = './assets/images/applex.png';
 
   final String imageAppleY = './assets/images/appley.png';
 
   final String imageLamp = './assets/images/lamp.png';
-
-  final String imageTurban = './assets/images/turban.png';
 
   final String imageSnakewithClouds = './assets/images/snakewithClouds.png';
 
@@ -29,6 +25,15 @@ class HomeSnakeData {
     reverseCurve: Curves.linear,
     repeats: 0,
     shouldReverseRepeats: true,
+    shouldAutoStart: true,
+  );
+
+  final animation2 = RM.injectAnimation(
+    duration: 10.seconds,
+    curve: Curves.linear,
+    reverseCurve: Curves.linear,
+    repeats: 0,
+    // shouldReverseRepeats: true,
     shouldAutoStart: true,
   );
 }
