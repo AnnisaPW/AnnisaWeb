@@ -20,7 +20,6 @@ class HomeSnakeAnimatedText extends StatelessWidget {
           'widthX',
         );
         return SizedBox(
-          // width: 150,
           width: widthX,
           height: 100,
           child: const Text(
@@ -30,6 +29,7 @@ class HomeSnakeAnimatedText extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
             textScaleFactor: 5,
+            softWrap: false,
           ),
         );
       },

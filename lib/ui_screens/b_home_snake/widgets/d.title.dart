@@ -8,13 +8,18 @@ class HomeSnakeTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final sizeWidth = MediaQuery.of(context).size.width;
+    final sizeHeight = MediaQuery.of(context).size.height;
 
     return Visibility(
       visible: sizeWidth >= 1200,
       child: Column(
         children: [
-          const SizedBox(
-            height: 100,
+          SizedBox(
+            height: sizeHeight < 660
+                ? 20
+                : sizeHeight < 770
+                    ? 50
+                    : 100,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
