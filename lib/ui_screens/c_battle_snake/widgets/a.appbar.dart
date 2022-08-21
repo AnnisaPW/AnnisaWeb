@@ -15,14 +15,16 @@ class BattleSnakeAppbar extends StatelessWidget {
         onPressed: () => nav.back(),
       ),
       actions: [
-        Row(
-          children: const [
-            BattleSnakeBtnPause(),
-            SizedBox(width: 5),
-            BattleSnakeBtnStart(),
-            SizedBox(width: 5),
-          ],
-        )
+        MediaQuery.of(context).size.width > 600
+            ? Row(
+                children: const [
+                  BattleSnakeBtnPause(),
+                  SizedBox(width: 5),
+                  BattleSnakeBtnStart(),
+                  SizedBox(width: 5),
+                ],
+              )
+            : const SizedBox.shrink(),
       ],
     );
   }
