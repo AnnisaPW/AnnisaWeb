@@ -15,6 +15,7 @@ final nav = RM.injectNavigator(
     Routes.homeSnake: (data) => const HomeSnakeView(),
     Routes.battleSnake: (data) => const BattleSnakeView(),
     Routes.singleSnake: (data) => const SingleSnakeView(),
+    Routes.puzzleGame: (data) => const PuzzleGameHome(),
   },
   onNavigateBack: (RouteData? data) {
     if (data == null) {
@@ -28,8 +29,7 @@ final nav = RM.injectNavigator(
 
       if (dt.rmIsRunning.st == true) {
         dt.rmIsPause.st = true;
-        Dialogs.gameOver('Confirmation',
-            'Your point is ${dt.rmPoint.st}. Do you want to exit?');
+        Dialogs.gameOver('Confirmation', 'Your point is ${dt.rmPoint.st}. Do you want to exit?');
       } else if (dt.rmIsRunning.st == false) {
         RM.navigate.forceBack();
         logger.wtf('exit from battle snake');
@@ -44,8 +44,7 @@ final nav = RM.injectNavigator(
 
       if (dt2.rmIsRunning.st == true) {
         dt2.rmIsPause.st = true;
-        Dialogs.gameOver2('Confirmation',
-            'Your point is ${dt2.rmPoint.st}. Do you want to exit?');
+        Dialogs.gameOver2('Confirmation', 'Your point is ${dt2.rmPoint.st}. Do you want to exit?');
       } else if (dt2.rmIsRunning.st == false) {
         RM.navigate.forceBack();
         logger.wtf('exit from single snake');

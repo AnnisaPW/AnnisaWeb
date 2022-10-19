@@ -20,6 +20,7 @@ class Routes {
   static const homeSnake = '/home_snake';
   static const battleSnake = '/battle_snake';
   static const singleSnake = '/single_snake';
+  static const puzzleGame = '/puzzle_game';
   // *----- ----- ----- ----- ----- ----- ----- ----- -----
   static const zhome = '/zhome';
 }

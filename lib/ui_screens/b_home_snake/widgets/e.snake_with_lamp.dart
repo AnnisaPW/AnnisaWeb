@@ -10,16 +10,16 @@ class HomeSnakeWithLamp extends StatelessWidget {
     final sizeWidth = MediaQuery.of(context).size.width;
     final sizeHeight = MediaQuery.of(context).size.height;
 
-    return Positioned(
-      right: 50,
-      bottom: 150,
-      child: SizedBox(
-        width: sizeWidth / 3,
-        height: sizeHeight - 300,
-        child: AspectRatio(
-          aspectRatio: 1 / 1,
-          child: Visibility(
-            visible: sizeHeight >= 790,
+    return Visibility(
+      visible: sizeWidth > 790,
+      child: Positioned(
+        right: 50,
+        bottom: 5,
+        child: SizedBox(
+          width: sizeWidth / 3,
+          height: sizeHeight - 300,
+          child: AspectRatio(
+            aspectRatio: 1 / 1,
             child: SizedBox(
               child: Stack(
                 children: const [

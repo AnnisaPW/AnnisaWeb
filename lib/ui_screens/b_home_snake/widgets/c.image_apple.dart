@@ -15,9 +15,7 @@ class HomeSnakeAppleImage extends StatelessWidget {
       child: SizedBox(
         width: 400,
         height: 400,
-        child: sizeWidth >= 1200
-            ? Image.asset(dt.imageAppleX)
-            : Image.asset(dt.imageAppleY),
+        child: sizeWidth >= 1200 ? Image.asset(dt.imageAppleX) : Image.asset(dt.imageAppleY),
       ),
     );
   }

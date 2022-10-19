@@ -25,6 +25,7 @@ class HomeBody extends StatelessWidget {
                     const HomeBiodata(),
                     const SizedBox(height: 10),
                     const HomeBtnSnakeGame(),
+                    const HomeBtnPuzzleGame(),
                     const SizedBox(height: 100),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,

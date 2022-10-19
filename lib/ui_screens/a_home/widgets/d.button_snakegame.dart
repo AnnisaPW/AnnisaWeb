@@ -9,7 +9,7 @@ class HomeBtnSnakeGame extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return OutlinedButton(
-      child: const Text('Click me'),
+      child: const Text('Snake Game'),
       onPressed: () => nav.to(Routes.homeSnake),
     );
   }

@@ -16,10 +16,10 @@ class HomeSnakeView extends StatelessWidget {
       body: Stack(
         children: const [
           HomeSnakeAppleImage(),
-          HomeSnakeTitle(),
-          HomeSnakeWithLamp(),
-          HomeSnakeAnimatedUp(),
+          // HomeSnakeTitle(),
           HomeSnakeBtnPlay(),
+          HomeSnakeAnimatedUp(),
+          // HomeSnakeWithLamp(),
         ],
       ),
     );

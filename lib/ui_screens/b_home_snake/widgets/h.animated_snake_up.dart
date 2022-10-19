@@ -10,10 +10,11 @@ class HomeSnakeAnimatedUp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final sizeWidth = MediaQuery.of(context).size.width;
+    // final sizeWidth = MediaQuery.of(context).size.width;
 
     return Visibility(
-      visible: sizeWidth < 1200,
+      // visible: sizeWidth < 1200,
+      visible: true,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [

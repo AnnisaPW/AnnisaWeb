@@ -55,7 +55,10 @@ class HomeSnakeAnimatedSide extends StatelessWidget {
                   // color: Colors.amber,
                   child: Image.asset(dt.imageSnakewithClouds),
                 ),
-                SizedBox(height: heightx),
+                Container(
+                  height: heightx,
+                  color: Colors.yellow,
+                ),
               ],
             ),
           ),
