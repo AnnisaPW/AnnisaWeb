@@ -7,6 +7,6 @@ class Overrides {
   static List<Override> get list => [
         pvConnectxRepo.overrideWithValue(ConnectxRepoFake()),
         pvSettingsRepo.overrideWithValue(SettingsRepoFake()),
-        pvAuthFbRepo.overrideWithValue(AuthFbRepoFake()),
+        // pvAuthFbRepo.overrideWithValue(AuthFbRepoFake()),
       ];
 }

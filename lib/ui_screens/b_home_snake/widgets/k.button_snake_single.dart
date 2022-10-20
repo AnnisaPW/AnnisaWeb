@@ -11,7 +11,9 @@ class HomeSnakeBtnSingle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      style: ElevatedButton.styleFrom(primary: Colors.yellow.shade100),
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Colors.yellow.shade100,
+      ),
       child: const Text(
         'Single',
         style: TextStyle(

@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:states_rebuilder/states_rebuilder.dart';
 
 import '../../../common/_index.dart';
-import '../../common/_index.dart';
 
 part 'a.snake.data.dart';
 part 'b.snake.ctrl.dart';
