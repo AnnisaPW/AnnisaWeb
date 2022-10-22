@@ -22,14 +22,13 @@ if (flutterVersionName == null) {
 }
 
 apply plugin: 'com.android.application'
-apply plugin: 'com.google.gms.google-services' //! add this line
-
+// apply plugin: 'com.google.gms.google-services' //! add this line
 apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
-    compileSdkVersion localProperties.getProperty('flutter.compileSdkVersion').toInteger() //! add this line
-
+    compileSdkVersion flutter.compileSdkVersion
+    ndkVersion flutter.ndkVersion
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -47,12 +46,13 @@ android {
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "com.example.annisa_web"
-        minSdkVersion localProperties.getProperty('flutter.minSdkVersion').toInteger()  //! add this line
-        targetSdkVersion localProperties.getProperty('flutter.targetSdkVersion').toInteger()  //! add this line
-        versionCode flutterVersionCode.toInteger()
+        // You can update the following values to match your application needs.
+        // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-build-configuration.
+        minSdkVersion localProperties.getProperty('flutter.minSdkVersion').toInteger() //! Add this line
+        targetSdkVersion localProperties.getProperty('flutter.targetSdkVersion').toInteger() //! Add this line
+        versionCode localProperties.getProperty('flutter.versionCode').toInteger() //! Add this line
         versionName flutterVersionName
-        multiDexEnabled true //! Add this line
-
+        // multiDexEnabled true //! Add this line
     }
 
     buildTypes {
@@ -69,7 +69,7 @@ flutter {
 }
 
 dependencies {
-     // implementation platform('com.google.firebase:firebase-bom:29.0.1') //! Add this line
-    // implementation 'com.google.firebase:firebase-analytics' //! Add this line
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation platform('com.google.firebase:firebase-bom:30.0.1') //! Add this line
+    implementation 'com.google.firebase:firebase-analytics' //! Add this line
 }

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+part of '_index.dart';
 
 class ButtonOutlinedWithIcon extends StatelessWidget {
   final String text;
@@ -20,6 +20,7 @@ class ButtonOutlinedWithIcon extends StatelessWidget {
           color: Colors.grey.withOpacity(0.3),
         ),
       ),
+      onPressed: onClicked,
       child: Row(
         children: [
           Icon(icon),
@@ -32,7 +33,6 @@ class ButtonOutlinedWithIcon extends StatelessWidget {
           ),
         ],
       ),
-      onPressed: onClicked,
     );
   }
 }

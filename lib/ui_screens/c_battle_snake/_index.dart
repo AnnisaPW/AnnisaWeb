@@ -6,8 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:simple_gesture_detector/simple_gesture_detector.dart';
 import 'package:states_rebuilder/states_rebuilder.dart';
 
-import '../../common/_index.dart';
-
 part 'a.battle_snake.data.dart';
 part 'b.battle_snake.ctrl.dart';
 part 'c.battle_snake.view.dart';

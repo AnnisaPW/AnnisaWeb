@@ -1,26 +1,23 @@
 part of '_index.dart';
 
 Future<void> inits() async {
-  logger.wtf('inits start');
+  logx.wtf('inits start');
 
-  //* get widgets binding
   WidgetsFlutterBinding.ensureInitialized();
 
-  //* init firebase
-  if (!GetPlatform.isWindows) {
-    await Firebase.initializeApp(
-      options: DefaultFirebaseOptions.currentPlatform,
-    );
-  }
+  await RM.storageInitializer(config.st.store);
 
-  //* init environment configuration
-  const envString = String.fromEnvironment('env', defaultValue: 'dev');
-  Config.initConfig(envString);
+  // if (!PlatformType.isWindows) {
+  //   await Firebase.initializeApp(
+  //     options: DefaultFirebaseOptions.currentPlatform,
+  //   );
+  //   x1FcmServ.init();
+  //   x1AuthServ.init();
+  // }
 
-  //* init storage
-  if (!GetPlatform.isWeb) {
-    await GetStorage.init(Config.values.storageName);
-  }
+  // x1ConnServ.init();
 
-  logger.wtf('inits success');
+  setPathUrlStrategy();
+
+  logx.wtf('inits success');
 }

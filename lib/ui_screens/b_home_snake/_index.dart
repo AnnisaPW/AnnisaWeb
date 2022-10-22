@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:states_rebuilder/states_rebuilder.dart';
 
 import '../../../app/_index.dart';
-import '../../common/utils/_index.dart';
 
 part 'a.home_snake.data.dart';
 part 'b.home_snake.ctrl.dart';
